@@ -1,7 +1,6 @@
 package ru.medvedev.parse;
 
 import org.jsoup.nodes.Element;
-
 import java.util.Scanner;
 
 public class MainTest {

@@ -4,14 +4,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
 
 public class Parse {
     private Document document;
     private Elements elements;
-    private Elements elementsChild;
-    private Element element;
 
     public void getWeb(String url){
         try {
@@ -38,17 +35,5 @@ public class Parse {
     public Element getURL(){
         System.out.println(elements.last().text());
         return elements.last();//.attr("href");
-    }
-
-    public Element getElement() {
-        return element;
-    }
-
-    public Document getDocument() {
-        return document;
-    }
-
-    public Elements getElements() {
-        return elements;
     }
 }
