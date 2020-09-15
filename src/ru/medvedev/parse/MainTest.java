@@ -12,9 +12,9 @@ public class MainTest {
         Element downloading;
 
         String url1 = "https://pypi.org/simple/";
-        String url2 = "";
-        String fileName = "";
-        String packageName = "";
+        String url2;
+        String fileName;
+        String packageName;
 
         packageName = in.nextLine();
 

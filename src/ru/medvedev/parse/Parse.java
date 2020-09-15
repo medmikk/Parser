@@ -22,16 +22,6 @@ public class Parse {
         elements = document.select("a");
     }
 
-    public void printEls(){
-        int i = 0;
-        for (Element element: elements){
-            System.out.println(element);
-            i++;
-            if (i > 5)
-                break;
-        }
-    }
-
     public Element getURL(){
         System.out.println(elements.last().text());
         return elements.last();//.attr("href");
