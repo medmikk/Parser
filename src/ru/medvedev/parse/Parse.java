@@ -12,7 +12,7 @@ public class Parse {
 
     public void getWeb(String url){
         try {
-            document = Jsoup.connect(url).get();
+            document = Jsoup.connect(url.replaceAll(";", "")).get();
         } catch (IOException e){
             e.printStackTrace();
         }

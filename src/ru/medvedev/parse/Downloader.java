@@ -9,8 +9,12 @@ import java.nio.file.Files;
 public class Downloader {
 
     public void download(String url_, String filename) throws IOException {
-        URL url = new URL(url_);
-        InputStream inputStream = url.openStream();
-        Files.copy(inputStream, new File(System.getProperty("user.dir") + "/NewFiles/" + filename).toPath());
+        File f = new File(System.getProperty("user.dir") + "/NewFiles/" + filename);
+        if(!f.exists()) {
+            URL url = new URL(url_);
+            InputStream inputStream = url.openStream();
+            Files.copy(inputStream, new File(System.getProperty("user.dir") + "/NewFiles/" + filename).toPath());
+        }
+
     }
 }

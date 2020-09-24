@@ -35,15 +35,20 @@ public class MainTest {
         downloadedPackages.add(packageName);
 
         DataExtractor extractor = new DataExtractor();
-        String data = extractor.getData(System.getProperty("user.dir") + "/NewFiles/" + downloading.text());
+        if (downloading.text().contains(".whl")) {
+            String data = extractor.getData(System.getProperty("user.dir") + "/NewFiles/" + downloading.text());
 
-        ArrayList<String> currentDeps = new ArrayList<String>();
-        currentDeps = extractor.getDeps(data);
-        dependency.put(packageName, currentDeps);
+            ArrayList<String> currentDeps;
+            currentDeps = extractor.getDeps(data);
+            dependency.put(packageName, currentDeps);
+            if(currentDeps.size() > 0) {
+                for (String s : currentDeps)
+                    if (isNew(s))
+                        recurs(s);
+            }
+        }
 
-        for (String s : currentDeps)
-                if(isNew(s))
-                recurs(s);
+
     }
 
     public static void getGraphVizCode(){

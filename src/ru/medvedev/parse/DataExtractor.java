@@ -35,11 +35,13 @@ public class DataExtractor {
 
     public ArrayList<String> getDeps(String data){
         ArrayList<String> deps = new ArrayList<>();
-        for (String line : data.split("\n")){
-            if(line.split(" ")[0].equals("Requires-Dist:") && !line.contains("extra ==")){
-                deps.add(line.split(" ")[1]);
+        if(!data.isEmpty())
+            for (String line : data.split("\n")){
+                if(line.split(" ").length > 0)
+                    if(line.split(" ")[0].equals("Requires-Dist:") && !line.contains("extra ==")){
+                       deps.add(line.split(" ")[1]);
+                 }
             }
-        }
         return deps;
     }
 }
