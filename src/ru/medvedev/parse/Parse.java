@@ -23,7 +23,12 @@ public class Parse {
     }
 
     public Element getURL(){
-        System.out.println(elements.last().text());
-        return elements.last();//.attr("href");
+        Element e = elements.last();
+        for (Element element: elements){
+            if(element.attr("href").contains(".whl")){
+                e = element;
+            }
+        }
+        return e;
     }
 }
